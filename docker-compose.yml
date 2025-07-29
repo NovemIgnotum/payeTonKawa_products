@@ -3,17 +3,19 @@ version: "3.9"
 services:
   api:
     build: .
-    container_name: api_clients
+    container_name: api_products
     ports:
       - "8000:8000"
     depends_on:
       - db
     environment:
       - DATABASE_URL=postgresql://postgres:postgres@db:5432/postgres
+    volumes:
+      - ./app:/app
 
   db:
     image: postgres:15
-    container_name: postgres_clients
+    container_name: postgres_products
     environment:
       POSTGRES_USER: postgres
       POSTGRES_PASSWORD: postgres
@@ -25,7 +27,7 @@ services:
 
   pgadmin:
     image: dpage/pgadmin4
-    container_name: pgadmin_clients
+    container_name: pgadmin_products
     environment:
       PGADMIN_DEFAULT_EMAIL: admin@admin.com
       PGADMIN_DEFAULT_PASSWORD: admin

@@ -30,6 +30,12 @@ Une fois le serveur lancé, accédez à la documentation interactive :
 - Swagger UI : [http://localhost:8000/docs](http://localhost:8000/docs)
 - Redoc : [http://localhost:8000/redoc](http://localhost:8000/redoc)
 
+## Observation du container de l'API
+
+```bash
+docker logs api_products -f
+```
+
 ## Tests
 
 ```bash
