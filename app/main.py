@@ -1,6 +1,8 @@
 from fastapi import FastAPI
 from sqlalchemy.exc import OperationalError
 from database.session import engine
+from routes import products
+
 app = FastAPI()
 
 
@@ -12,4 +14,4 @@ def read_root():
     except OperationalError as e:
         return {"error": f"Erreur de connexion à la base de données : {e}"}
 
-
+app.include_router(products.router, prefix="/api", tags=["products"])
