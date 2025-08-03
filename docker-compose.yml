@@ -5,14 +5,13 @@ services:
     build: .
     container_name: api_products
     ports:
-      - "8000:8000"
+      - "8002:8002"
     depends_on:
       - db
     environment:
       - DATABASE_URL=postgresql://postgres:postgres@db:5432/postgres
     volumes:
       - ./app:/app
-
   db:
     image: postgres:15
     container_name: postgres_products
@@ -21,7 +20,7 @@ services:
       POSTGRES_PASSWORD: postgres
       POSTGRES_DB: postgres
     ports:
-      - "5432:5432"
+      - "5434:5434"
     volumes:
       - pgdata:/var/lib/postgresql/data
 
@@ -32,7 +31,7 @@ services:
       PGADMIN_DEFAULT_EMAIL: admin@admin.com
       PGADMIN_DEFAULT_PASSWORD: admin
     ports:
-      - "5050:80"
+      - "5052:80"
     depends_on:
       - db
 
