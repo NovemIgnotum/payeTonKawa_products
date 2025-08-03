@@ -12,10 +12,22 @@ source venv/bin/activate
 pip install -r requirements.txt
 ```
 
-## Lancement du serveur
+## Lancement du serveur API uniqument
 
 ```bash
 uvicorn main:app --reload
+```
+
+## Lancement des docker
+
+```bash
+docker compose up -d
+```
+
+### Pour acceder au logs du conteneur API
+
+```bash 
+docker logs api_products -f
 ```
 
 ## Structure du projet
@@ -39,7 +51,7 @@ docker logs api_products -f
 ## Tests
 
 ```bash
-pytest
+PYTHONPATH=./app pytest
 ```
 
 ## Licence
