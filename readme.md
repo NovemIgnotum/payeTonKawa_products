@@ -12,10 +12,22 @@ source venv/bin/activate
 pip install -r requirements.txt
 ```
 
-## Lancement du serveur
+## Lancement du serveur API uniqument
 
 ```bash
 uvicorn main:app --reload
+```
+
+## Lancement des docker
+
+```bash
+docker compose up -d
+```
+
+### Pour acceder au logs du conteneur API
+
+```bash 
+docker logs api_products -f
 ```
 
 ## Structure du projet
@@ -30,10 +42,16 @@ Une fois le serveur lancé, accédez à la documentation interactive :
 - Swagger UI : [http://localhost:8000/docs](http://localhost:8000/docs)
 - Redoc : [http://localhost:8000/redoc](http://localhost:8000/redoc)
 
+## Observation du container de l'API
+
+```bash
+docker logs api_products -f
+```
+
 ## Tests
 
 ```bash
-pytest
+PYTHONPATH=./app pytest
 ```
 
 ## Licence
