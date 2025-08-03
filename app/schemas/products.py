@@ -35,3 +35,10 @@ class ProductResponse(BaseModel):
 
     class Config:
         from_attributes = True
+        
+class getResponse(BaseModel):
+    message: str
+    product: list[ProductInDB]
+
+    class Config:
+        from_attributes = True
